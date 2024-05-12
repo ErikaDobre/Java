@@ -1,0 +1,49 @@
+package probleme;
+import java.util.*;
+
+public class java2 {
+
+    private static Scanner input;
+
+    public static void main(String[] args) {
+        int n, m, i, j, k;
+
+        System.out.print("Introduceti numarul de elemente ale multimii A (n) = ");
+        input = new Scanner(System.in);
+        n = input.nextInt();
+
+        System.out.print("Introduceti numarul de elemente ale multimii B (m) = ");
+        m = input.nextInt();
+        int A[] = new int[n];
+        int B[] = new int[m];
+        System.out.println("Introduceti elementele multimii A: ");
+        for (i = 0; i < n; i++) {
+            System.out.print("A[" + i + "]=");
+            A[i] = input.nextInt();
+        }
+        System.out.println("Introduceti elementele multimii B: ");
+        for (i = 0; i < m; i++) {
+            System.out.print("B[" + i + "]=");
+            B[i] = input.nextInt();
+        }
+        
+        int C[] = new int[100];
+    k = 0; // k reprezinta numarul de elemente din multimea C
+
+        // Verificam pentru fiecare element din A daca se gaseste in B
+        for (i = 0; i < n; i++) {
+            for (j = 0; j < m; j++) {
+                if (A[i] == B[j]) {
+                    C[k] = A[i];
+                    k++;
+                    break; // Iesim din bucla interna pentru a evita adaugarea duplicatelor
+                }
+            }
+        }
+        
+        // Afisare intersectie
+        System.out.print("Intersectia multimilor A si B: ");
+        for (i = 0; i < k; i++)
+            System.out.print(C[i] + " ");
+    }
+}
