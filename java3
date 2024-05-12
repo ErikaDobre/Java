@@ -1,0 +1,53 @@
+package probleme;
+import java.util.*;
+
+public class java3 {
+
+    private static Scanner input;
+
+    public static void main(String[] args) {
+        int n, m, i, j, k;
+
+        System.out.print("Introduceti numarul de elemente ale multimii A (n) = ");
+        input = new Scanner(System.in);
+        n = input.nextInt();
+
+        System.out.print("Introduceti numarul de elemente ale multimii B (m) = ");
+        m = input.nextInt();
+        int A[] = new int[n];
+        int B[] = new int[m];
+        System.out.println("Introduceti elementele multimii A: ");
+        for (i = 0; i < n; i++) {
+            System.out.print("A[" + i + "]=");
+            A[i] = input.nextInt();
+        }
+        System.out.println("Introduceti elementele multimii B: ");
+        for (i = 0; i < m; i++) {
+            System.out.print("B[" + i + "]=");
+            B[i] = input.nextInt();
+        }
+
+        int C[] = new int[100];
+        k = 0; // k reprezinta numarul de elemente din multimea C
+
+        // Verificam pentru fiecare element din A daca nu se gaseste in B
+        for (i = 0; i < n; i++) {
+            boolean gasit = false;
+            for (j = 0; j < m; j++) {
+                if (A[i] == B[j]) {
+                    gasit = true;
+                    break;
+                }
+            }
+            if (!gasit) {
+                C[k] = A[i];
+                k++;
+            }
+        }
+
+        // Afisare diferenta
+        System.out.print("Diferenta multimilor A si B (A - B): ");
+        for (i = 0; i < k; i++)
+            System.out.print(C[i] + " ");
+    }
+}
