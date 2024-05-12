@@ -1,0 +1,29 @@
+package probleme;
+import java.util.*;
+
+public class java4 {
+    private static Scanner input;
+
+    public static void main(String[] args) {
+        int n;
+        System.out.print("Introduceti numarul de elemente n = ");
+        input = new Scanner(System.in);
+        n = input.nextInt();
+
+        double V[] = new double[n];
+        int i;
+        boolean Crescator = true;
+
+        for (i = 0; i < n; i++) {
+            System.out.print("V[" + i + "]=");
+            V[i] = input.nextDouble();
+        }
+
+
+        // Verificare daca vectorul este in ordine crescatoare
+        for (i = 0; i < n - 1; i++) {
+            if (V[i] > V[i + 1]) {
+                Crescator = false;
+                break;
+            }
+        }
